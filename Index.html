@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Squid Game - 3D Red Light Green Light</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- This container will hold the 3D canvas -->
+  <div id="game-container"></div>
+
+  <!-- UI Overlay -->
+  <div class="ui-overlay p-4">
+    <header class="mb-4 text-center">
+      <div class="flex justify-center items-center space-x-2 mb-2">
+        <svg width="40" height="40" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" stroke="#FF007A" stroke-width="8" fill="none"/></svg>
+        <svg width="40" height="40" viewBox="0 0 100 100"><polygon points="50,5 95,85 5,85" stroke="#FF007A" stroke-width="8" fill="none"/></svg>
+        <svg width="40" height="40" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" stroke="#FF007A" stroke-width="8" fill="none"/></svg>
+      </div>
+      <h1 class="text-3xl font-bold tracking-wider uppercase">Squid Game</h1>
+      <p class="text-lg -mt-1 text-gray-300">3D Edition</p>
+    </header>
+
+    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-full px-4 text-center">
+      <div id="status" class="text-4xl font-bold uppercase transition-colors duration-200" style="color: var(--squid-teal);">
+        Get Ready
+      </div>
+      <div id="timer" class="text-xl font-semibold mt-1">Time: 30s</div>
+    </div>
+
+    <div id="instructions" class="ui-content text-center absolute bottom-10">
+      <p class="text-lg">Press & Hold <span class="font-bold text-pink-500">[SPACE]</span> or <span class="font-bold text-pink-500">[MOUSE CLICK]</span> to run.</p>
+      <p class="text-md text-gray-400">Reach the finish line before time runs out.</p>
+      <button id="start-button" class="mt-4 bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 rounded-lg text-xl uppercase tracking-wider transition-transform duration-200 hover:scale-105">
+        Play Now
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal fixed inset-0 flex-col items-center justify-center hidden z-50">
+    <h2 id="modal-title" class="text-5xl font-bold uppercase mb-4"></h2>
+    <p id="modal-text" class="text-xl mb-6"></p>
+    <button id="restart-button" class="bg-teal-500 hover:bg-teal-600 text-black font-bold py-3 px-8 rounded-lg text-xl uppercase tracking-wider transition-transform duration-200 hover:scale-105">
+      Play Again
+    </button>
+  </div>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
+
+
